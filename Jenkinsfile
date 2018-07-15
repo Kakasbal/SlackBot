@@ -4,7 +4,7 @@ pipeline {
     stage('Git') {
       steps {
         script {	  
-        echo 'Obteniendo codigo fuente de Git rama ' + env.BRANCH_NAME
+        echo 'Obteniendo codigo fuente de Git ' + env.BRANCH_NAME
         git(url: 'https://github.com/Kakasbal/SlackBot.git', branch:  env.BRANCH_NAME)
                 }
       }
