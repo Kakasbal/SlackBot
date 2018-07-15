@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Git') {
+    stage('Get Git Code') {
       steps {
         script {	  
         echo 'Obteniendo codigo fuente de Git ' + env.BRANCH_NAME
