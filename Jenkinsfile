@@ -32,9 +32,9 @@ pipeline {
             }
      }
     stage('Deploy to production') {
-      when {
-        environment name: 'TAG_ON_DEPLOY_PROD', value: 'yes'
-      }
+     // when {
+     //   environment name: 'TAG_ON_DEPLOY_PROD', value: 'yes'
+     // }
       steps {
         script {
 		   if (branch=='master') {
