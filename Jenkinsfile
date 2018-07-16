@@ -40,7 +40,7 @@ pipeline {
 		   if (branch=='master') {
            echo 'Deploy production'
            node('DigitalOceanNode'){
-            sh('cd /srv/botfull/slack1/SlackBot && git pull origin master && pm2 restart SlackDialog.js ')
+            sh('cd /srv/botfull/slack1/SlackBot && git pull origin master && pm2 start SlackDialog.js  --name SysBot ')
             sh('cd /srv/botfull/slack1/SlackBot && ls -lrt ')
            }
 		   }
