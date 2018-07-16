@@ -4,11 +4,11 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const uuid = require('uuid');
 const bm = require('./broker');
-const conf = require('../Clients/clients');
+const conf = require('../Client/client');
 const conversationId = 'CAZULSQG5';
 // Get an API token by creating an app at <https://api.slack.com/apps?new_app=1>
 // It's always a good idea to keep sensitive data like the token outside your source code. Prefer environment variables.
-const token = tokenSlack;
+const token = conf.tokenSlack;
 //const token = "xoxp-374726385334-373972903845-392223421383-4dd2f247ea3e9365b04a6df66565ece0";
 if (!token) {
     console.log('You must specify a token to use this example');
