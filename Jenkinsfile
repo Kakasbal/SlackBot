@@ -37,10 +37,9 @@ pipeline {
       }
       steps {
         script {
-           echo 'Desplegando aplicación para ambiente de ' + branch
-		   if (branch=='Master') {
-           echo 'Deploy Produccion'
-           sh 'ssh root@206.189.193.99 -p maco.2018 | cp /srv/botfull/slack1/SlackBot '
+		   if (branch=='master') {
+           echo 'Deploy production'
+           sh 'ssh root@206.189.193.99 -p maco.2018 | cp /srv/botfull/slack1/SlackBot | git status'
 		   }
                 }
       }
