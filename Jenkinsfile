@@ -24,7 +24,7 @@ pipeline {
 		   if (branch=='QA') {
           echo 'Deploy QA'
 			}
-		   if (branch=='master') {
+		   if (branch=='dev') {
           env.TAG_ON_DEPLOY_PROD = input message: 'Requiere Aprobación',
               parameters: [choice(name: 'Deploy Production', choices: 'no\nyes', description: 'Selecciona "yes" Si esta de acuerdo en publicar en ambiente de Producción ')]
 			}					   
