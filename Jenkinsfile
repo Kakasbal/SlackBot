@@ -39,7 +39,7 @@ pipeline {
         script {
 		   if (branch=='master') {
            echo 'Deploy production'
-        sshagent (credentials: ['ee8cef05-eed1-4638-9e43-39750747195d']) {
+        sshagent (credentials: ['digitalOcean']) {
        sh 'ssh -o StrictHostKeyChecking=no -l root 206.189.193.99 uname -a'
         }
 		   }
