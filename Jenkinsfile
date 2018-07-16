@@ -4,11 +4,8 @@ pipeline {
     stage('Get Git Code') {
       steps {
         script {	
-          def getGitBranchName() {
-    return scm.branches[0].name
-}  
-        echo 'Obteniendo codigo fuente de Git ' + getGitBranchName()
-        git(url: 'https://github.com/Kakasbal/SlackBot.git', branch:  env.BRANCH_NAME)
+        echo 'Obteniendo codigo fuente de Git ' 
+        git(url: 'https://github.com/Kakasbal/SlackBot.git', branch:  master)
                 }
       }
     }
@@ -16,7 +13,7 @@ pipeline {
      stage('Deploy Code') {
       steps {
         script {
-           echo 'Desplegando aplicación para ambiente de ' + env.BRANCH_NAME
+           echo 'Desplegando aplicación para ambiente de ' + master
 		   if (env.BRANCH_NAME=='Desarrollo') {
           echo 'Deploy Dev'
 			}
