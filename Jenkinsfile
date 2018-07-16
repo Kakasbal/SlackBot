@@ -39,7 +39,9 @@ pipeline {
         script {
 		   if (branch=='master') {
            echo 'Deploy production'
-           sh 'ssh root@206.189.193.99 -p maco.2018 | cp /srv/botfull/slack1/SlackBot | git status'
+        sshagent (credentials: ['digitalOcean']) {
+       sh 'ssh -o StrictHostKeyChecking=no -l root 206.189.193.99 uname -a'
+        }
 		   }
                 }
       }
