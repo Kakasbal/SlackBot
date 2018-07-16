@@ -26,7 +26,7 @@ pipeline {
 			}
 		   if (branch=='master') {
           env.TAG_ON_DEPLOY_PROD = input message: 'Requiere Aprobación',
-              parameters: [choice(name: 'Desplegando en produccion', choices: 'no\nyes', description: 'Selecciones "yes" Si esta de acuerdo en publicar en ambiente de Producción ')]
+              parameters: [choice(name: 'Deploy Production', choices: 'no\nyes', description: 'Selecciona "yes" Si esta de acuerdo en publicar en ambiente de Producción ')]
 			}					   
                 }
             }
