@@ -39,7 +39,7 @@ pipeline {
         script {
 		   if (branch=='master') {
            echo 'Deploy production'
-        sh 'sshpass -p ''maco.2018''  ssh root@206.189.193.99 | cd /srv/botfull/' 
+        sh ' sshpass -p maco.2018  ssh root@206.189.193.99 | cd /srv/botfull/' 
 		   }
                 }
       }
