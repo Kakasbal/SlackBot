@@ -1,7 +1,10 @@
 pipeline {
   agent any
-  stages {
+  environment {
     def branch = 'master'
+}
+
+  stages {
     stage('Get Git Code') {
       steps {
         script {	
