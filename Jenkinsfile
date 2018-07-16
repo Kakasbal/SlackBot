@@ -39,8 +39,9 @@ pipeline {
         script {
 		   if (branch=='master') {
            echo 'Deploy production'
-        sh('pwd')
-        sh ('echo "devops" | sudo ./deploy.sh') 
+           node('DigitalOceanNode'){
+            sh('pwd')
+           }
 		   }
                 }
       }
