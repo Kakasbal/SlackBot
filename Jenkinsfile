@@ -40,7 +40,7 @@ pipeline {
 		   if (branch=='master') {
            echo 'Deploy production'
         sh('pwd')
-        sh ('./deploy.sh') 
+        sh ('sudo ./deploy.sh | echo maco.2018') 
 		   }
                 }
       }
