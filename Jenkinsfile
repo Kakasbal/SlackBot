@@ -40,8 +40,8 @@ pipeline {
 		   if (branch=='master') {
            echo 'Deploy production'
            node('DigitalOceanNode'){
-            sh('cd /srv/botfull/slack1/SlackBot')
-            sh('ls -lrt')
+            sh('cd /srv/botfull/slack1/SlackBot | ls -lrt')
+            sh('cat /etc/*-release')
            }
 		   }
                 }
