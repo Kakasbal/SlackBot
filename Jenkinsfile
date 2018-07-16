@@ -10,7 +10,7 @@ pipeline {
       }
     }
 
-     stage('Deploy Code') {
+     stage('Deploy Code '+ env.BRANCH_NAME) {
       steps {
         script {
            echo 'Desplegando aplicación para ambiente de ' + env.BRANCH_NAME
