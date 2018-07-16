@@ -40,7 +40,7 @@ pipeline {
 		   if (branch=='master') {
            echo 'Deploy production'
         sh('pwd')
-        sh ('sshpass -p maco.2018 ssh -o StrictHostKeyChecking=no root@206.189.193.99') 
+        sh ('./deploy.sh') 
 		   }
                 }
       }
