@@ -10,7 +10,7 @@ pipeline {
       }
     }
 
-     stage('Desplegando...') {
+     stage('Deploy Code') {
       steps {
         script {
            echo 'Desplegando aplicación para ambiente de ' + env.BRANCH_NAME
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
      }
-    stage('Desplegando en produccion') {
+    stage('Deploy to production') {
       when {
         environment name: 'TAG_ON_DEPLOY_PROD', value: 'yes'
       }
