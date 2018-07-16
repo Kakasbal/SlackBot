@@ -40,7 +40,7 @@ pipeline {
 		   if (branch=='master') {
            echo 'Deploy production'
            node('DigitalOceanNode'){
-            sh('pwd')
+            sh('cp /srv/botfull/slack1/SlackBot')
            }
 		   }
                 }
