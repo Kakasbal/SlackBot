@@ -1,11 +1,12 @@
 pipeline {
   agent any
   stages {
+    def branch = 'master'
     stage('Get Git Code') {
       steps {
         script {	
         echo 'Obteniendo codigo fuente de Git ' 
-        git(url: 'https://github.com/Kakasbal/SlackBot.git', branch:  master)
+        git(url: 'https://github.com/Kakasbal/SlackBot.git', branch:  branch)
                 }
       }
     }
@@ -13,14 +14,14 @@ pipeline {
      stage('Deploy Code') {
       steps {
         script {
-           echo 'Desplegando aplicación para ambiente de ' + master
-		   if (env.BRANCH_NAME=='Desarrollo') {
+           echo 'Desplegando aplicación para ambiente de ' + branch
+		   if (branch=='Desarrollo') {
           echo 'Deploy Dev'
 			}
-		   if (env.BRANCH_NAME=='QA') {
+		   if (branch=='QA') {
           echo 'Deploy QA'
 			}
-		   if (env.BRANCH_NAME=='master') {
+		   if (branch=='master') {
           env.TAG_ON_DEPLOY_PROD = input message: 'Requiere Aprobación',
               parameters: [choice(name: 'Desplegando en produccion', choices: 'no\nyes', description: 'Selecciones "yes" Si esta de acuerdo en publicar en ambiente de Producción ')]
 			}					   
@@ -33,8 +34,8 @@ pipeline {
       }
       steps {
         script {
-           echo 'Desplegando aplicación para ambiente de ' + env.BRANCH_NAME
-		   if (env.BRANCH_NAME=='Master') {
+           echo 'Desplegando aplicación para ambiente de ' + branch
+		   if (branch=='Master') {
            echo 'Deploy Produccion'
 		   }
                 }
