@@ -319,7 +319,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters, m
                             let ADMIN = JSON.parse(body);
                             for (var i = 0; i < ADMIN.length; i++) {
                                 console.log("208... entro a status CODE ..... 200  host ######   " + ADMIN[i].Contact + "-----");
-                                let reply = `${responseText} ${ADMIN[i].Contact}`;
+                                let reply = `${messages[0].speech}\n  ${responseText} ${ADMIN[i].Contact}`;
                                 rtm.sendMessage(reply, conversationId);
                             }
                         } else {
